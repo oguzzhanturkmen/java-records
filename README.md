@@ -9,7 +9,7 @@ A record in Java is a special kind of class. It is intended to be a simple, conc
 ### **Syntax**
 
 ```java
-javaCopy code
+
 public record RecordName(Type1 field1, Type2 field2, ...) { }
 
 ```
@@ -27,7 +27,7 @@ public record RecordName(Type1 field1, Type2 field2, ...) { }
 ### **3. Basic Example**
 
 ```java
-javaCopy code
+
 public record Person(String name, int age) { }
 
 ```
@@ -35,7 +35,7 @@ public record Person(String name, int age) { }
 Usage:
 
 ```java
-javaCopy code
+
 Person person = new Person("John", 30);
 System.out.println(person.name());  // John
 System.out.println(person.age());   // 30
@@ -45,7 +45,7 @@ System.out.println(person.age());   // 30
 ### **4. Custom Methods in Records**
 
 ```java
-javaCopy code
+
 public record Employee(String name, int age) {
     public String greet() {
         return "Hello, my name is " + name;
@@ -57,7 +57,7 @@ public record Employee(String name, int age) {
 Usage:
 
 ```java
-javaCopy code
+
 Employee employee = new Employee("Alice", 28);
 System.out.println(employee.greet()); // Hello, my name is Alice
 
@@ -66,7 +66,7 @@ System.out.println(employee.greet()); // Hello, my name is Alice
 ### **5. Compact Constructor**
 
 ```java
-javaCopy code
+
 public record Car(String model, int year) {
     public Car {
         if (year < 2000) {
@@ -80,7 +80,7 @@ public record Car(String model, int year) {
 Usage:
 
 ```java
-javaCopy code
+
 Car car = new Car("Tesla", 2021);  // Valid
 // Car oldCar = new Car("Ford", 1990); // This would throw an IllegalArgumentException
 
@@ -91,7 +91,7 @@ Car car = new Car("Tesla", 2021);  // Valid
 While you generally don't need to override **`equals`**, **`hashCode`**, and **`toString`**, you can if you need specific behavior.
 
 ```java
-javaCopy code
+
 public record Book(String title, String author) {
     @Override
     public String toString() {
@@ -104,7 +104,7 @@ public record Book(String title, String author) {
 Usage:
 
 ```java
-javaCopy code
+
 Book book = new Book("1984", "George Orwell");
 System.out.println(book); // 1984 by George Orwell
 
